@@ -4,6 +4,10 @@ import Banner from "../components/Banner";
 import requests from "../utils/requests";
 import { Movie } from "../typings";
 import Row from "../components/Row";
+import useAuth from "../hooks/useAuth";
+import { modalState } from "../atoms/modalAtom";
+import { useRecoilValue } from "recoil";
+import Modal from "../components/Modal";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -14,6 +18,7 @@ interface Props {
   horrorMovies: Movie[];
   romanceMovies: Movie[];
   documentaries: Movie[];
+  animationMovies: Movie[];
 }
 
 const Home = ({
@@ -25,7 +30,13 @@ const Home = ({
   romanceMovies,
   topRated,
   trendingNow,
+  animationMovies,
 }: Props) => {
+  const { loading } = useAuth();
+  const showModal = useRecoilValue(modalState);
+
+  if (loading) return null;
+
   return (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
@@ -41,13 +52,15 @@ const Home = ({
         <section className="md:space-y-24">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
+          <Row title="Animation" movies={animationMovies} />
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
         </section>
       </main>
+      {showModal && <Modal />}
     </div>
   );
 };
@@ -64,6 +77,7 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
+    animationMovies,
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -73,6 +87,7 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
+    fetch(requests.fetchAnimationMovies).then((res) => res.json()),
   ]);
 
   return {
@@ -85,6 +100,7 @@ export const getServerSideProps = async () => {
       horrorMovies: horrorMovies.results,
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
+      animationMovies: animationMovies.results,
     },
   };
 };
