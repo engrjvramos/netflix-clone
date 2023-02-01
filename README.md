@@ -81,4 +81,4 @@ Please feel free to send pull request if you want to contribute!
 
 ## Author
 
-- JVR - [engrjvramos](https://engrjvramos.github.io)
+- [engrjvramos](https://engrjvramos.github.io)
