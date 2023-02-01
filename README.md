@@ -28,7 +28,7 @@ A lightweight version of Netflix built with NextJS, TypeScript, Firebase and Tai
 
 - Original Website: [Netflix](https://www.netflix.com/)
 - Solution URL: [GitHub](https://github.com/engrjvramos/netflix-clone)
-- Live Site URL: [Vercel](https://presello-clone.vercel.app)
+- Live Site URL: [Vercel](https://netflix-clone-engrjvramos.vercel.app)
 
 ### Screenshot
 
