@@ -6,7 +6,7 @@ import {
 import { User } from "firebase/auth";
 import payments from "../lib/stripe";
 
-function useSubscription(user: User) {
+function useSubscription(user: User | null) {
   const [subscription, setSubscription] = useState<Subscription | null>(null);
 
   useEffect(() => {
