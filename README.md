@@ -1,27 +1,84 @@
-# Next.js + Tailwind CSS Example
+# Netflix Clone
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+## Table of contents
 
-## Deploy your own
+- [Netflix Clone](#netflix-clone)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [Summary](#summary)
+    - [Links](#links)
+    - [Screenshot](#screenshot)
+  - [Details](#details)
+    - [Project purpose and goal](#project-purpose-and-goal)
+    - [Built with](#built-with)
+    - [Future improvements](#future-improvements)
+  - [Getting started](#getting-started)
+    - [Installing](#installing)
+  - [Contributing](#contributing)
+  - [Author](#author)
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+## Overview
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+### Summary
 
-## How to use
+A lightweight version of Netflix built with NextJS, TypeScript, Firebase and TailwindCSS that allows users to sign up and login, view movie details and trailers, select and purchase plans, and cancel or update membership. Integrated with Stripe for handling user payments, TMDB API for movie data, and YouTube for trailer videos.
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+### Links
+
+- Original Website: [Netflix](https://www.netflix.com/)
+- Solution URL: [GitHub](https://github.com/engrjvramos/netflix-clone)
+- Live Site URL: [Vercel](https://presello-clone.vercel.app)
+
+### Screenshot
+
+![](./public/home.png)
+
+## Details
+
+### Project purpose and goal
+
+The main purpose of this project is to create a netflix clone to demonstrate the usage of Firebase for the backend database and authentication, and Stripe for handling user payments, cancelling or updating membership. My goal is to build this project using NextJS + Typescript in order to practice myself further with the framework.
+
+### Built with
+
+- [NextJS](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [MaterialUI](https://mui.com/)
+- [Firebase](https://firebase.google.com/)
+- [Stripe](https://stripe.com/)
+- [Recoil](https://recoiljs.org/)
+- [TMDB API](https://www.themoviedb.org/documentation/api)
+- [react-player](https://www.npmjs.com/package/react-player)
+- Mobile-first workflow
+
+### Future improvements
+
+- [ ] Improve the thumbnail UI wherein movie details will show once the user hovers on a specific thumbnail.
+- [ ] Include episode lists into the modal component for tv shows.
+- [ ] Add a search functionality.
+- [ ] Add a Movies and TV Series tab.
+
+## Getting started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Installing
+
+Clone the repository and run the development server:
 
 ```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
+npm install
+npm run dev
+# or
+yarn install
+yarn run dev
 ```
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+## Contributing
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+Please feel free to send pull request if you want to contribute!
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## Author
+
+- JVR - [engrjvramos](https://engrjvramos.github.io)

@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import Banner from "../components/Banner";
 import requests from "../utils/requests";
 import { Movie } from "../typings";
@@ -62,22 +63,23 @@ const Home = ({
 
       {/* HEADER */}
       <Header />
-      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
+      <main className="relative pl-4 pb-16 lg:pb-24 lg:space-y-24 lg:pl-16">
         {/* BANNER */}
         <Banner netflixOriginals={netflixOriginals} />
         <section className="md:space-y-24">
           {list.length > 0 && <Row title="My List" movies={list} />}
           <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Animation" movies={animationMovies} />
-          <Row title="Action Thrillers" movies={actionMovies} />
-          <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Documentaries" movies={documentaries} />
           <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+          <Row title="Animation" movies={animationMovies} />
         </section>
       </main>
       {showModal && <Modal />}
+      <Footer />
     </div>
   );
 };
