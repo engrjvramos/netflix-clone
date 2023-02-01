@@ -13,14 +13,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ToastContainer
           position="bottom-right"
           autoClose={3000}
-          hideProgressBar={false}
+          hideProgressBar={true}
           newestOnTop={false}
           closeOnClick
           rtl={false}
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="light"
+          theme="dark"
         />
       </AuthProvider>
     </RecoilRoot>

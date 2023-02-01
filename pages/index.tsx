@@ -8,6 +8,10 @@ import useAuth from "../hooks/useAuth";
 import { modalState } from "../atoms/modalAtom";
 import { useRecoilValue } from "recoil";
 import Modal from "../components/Modal";
+import Plans from "../components/Plans";
+import payments from "../lib/stripe";
+import { getProducts, Product } from "@stripe/firestore-stripe-payments";
+import useSubscription from "../hooks/useSubscription";
 
 interface Props {
   netflixOriginals: Movie[];
@@ -19,6 +23,7 @@ interface Props {
   romanceMovies: Movie[];
   documentaries: Movie[];
   animationMovies: Movie[];
+  products: Product[];
 }
 
 const Home = ({
@@ -31,14 +36,22 @@ const Home = ({
   topRated,
   trendingNow,
   animationMovies,
+  products,
 }: Props) => {
-  const { loading } = useAuth();
+  const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
+  const subscription = useSubscription(user);
 
-  if (loading) return null;
+  if (loading || subscription === null) return null;
+
+  if (!subscription) return <Plans products={products} />;
 
   return (
-    <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
+    <div
+      className={`relative h-screen bg-gradient-to-b lg:h-[140vh] ${
+        showModal && "!h-screen overflow-hidden"
+      }`}
+    >
       <Head>
         <title>Netflix - Home</title>
         <link rel="icon" href="/favicon.ico" />
@@ -68,6 +81,13 @@ const Home = ({
 export default Home;
 
 export const getServerSideProps = async () => {
+  const products = await getProducts(payments, {
+    includePrices: true,
+    activeOnly: true,
+  })
+    .then((res) => res)
+    .catch((error) => console.log(error.message));
+
   const [
     netflixOriginals,
     trendingNow,
@@ -101,6 +121,7 @@ export const getServerSideProps = async () => {
       romanceMovies: romanceMovies.results,
       documentaries: documentaries.results,
       animationMovies: animationMovies.results,
+      products,
     },
   };
 };
