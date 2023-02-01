@@ -14,6 +14,7 @@
     - [Future improvements](#future-improvements)
   - [Getting started](#getting-started)
     - [Installing](#installing)
+    - [Paying with test card](#paying-with-test-card)
   - [Contributing](#contributing)
   - [Author](#author)
 
@@ -75,10 +76,20 @@ yarn install
 yarn run dev
 ```
 
+### Paying with test card
+
+To simulate a successful payment, use the given test card:
+
+- Number: 4242424242424242
+- CVC: Any 3 digits
+- Date: Any future date
+
+For more info, please visit https://stripe.com/docs/testing
+
 ## Contributing
 
 Please feel free to send pull request if you want to contribute!
 
 ## Author
 
-- JVR - [engrjvramos](https://engrjvramos.github.io)
+- [engrjvramos](https://engrjvramos.github.io)
